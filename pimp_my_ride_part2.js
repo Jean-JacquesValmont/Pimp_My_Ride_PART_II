@@ -5,6 +5,7 @@ class Trip {
         this.start = start,
         this.duration = duration,
         this.price = price
+        this.end
     }
 }
 
@@ -27,6 +28,7 @@ function parseTrip(trip) {
     trip_object.start = parseInt(trip_split[1])
     trip_object.duration = parseInt(trip_split[2])
     trip_object.price = parseInt(trip_split[3])
+    trip_object.end = trip_object.start + trip_object.duration
 
     array_ticket[i] = trip_object
 
