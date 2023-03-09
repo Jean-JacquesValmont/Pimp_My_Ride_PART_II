@@ -49,6 +49,21 @@ function parseTrip(trip) {
     return array_ticket
 }
 
+function findCompatibilities(trips){
+    let array_comptability = []
+    for (i = 0; i < trips.length - 1; i++)
+    {
+        for (j = 0; j < trips.length - 1; j++)
+        {
+            if (trips[i].isCompatible(trips[j]) == true)
+            {
+                array_comptability.push(trips[i] + trips[j])
+            }
+        }
+    }
+    return array_comptability
+}
+
 function parseTrips(trips) {
 
     for (i = 0; i < trips.length; i++)
@@ -56,12 +71,14 @@ function parseTrips(trips) {
         parseTrip(trips)
     }
     console.log(array_ticket) 
+
+    console.log(findCompatibilities(array_ticket))
 }
 
 parseTrips(tripsToParse)
 
-// Test de la méthode de compatibilité
-let trip = new Trip("Roger", 0, 5, 10)
-let anotherTrip = new Trip("Pongo", 3, 7, 14)
+// // Test de la méthode de compatibilité
+// let trip = new Trip("Roger", 0, 5, 10)
+// let anotherTrip = new Trip("Pongo", 3, 7, 14)
 
-console.log(trip.isCompatible(anotherTrip))
+// console.log(trip.isCompatible(anotherTrip))
