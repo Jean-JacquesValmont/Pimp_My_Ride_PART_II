@@ -7,6 +7,14 @@ class Trip {
         this.price = price
         this.end
     }
+
+    isCompatible(trip) {
+		if (trip.end <= this.end) {
+			return true
+		} else {
+			return false
+		}
+	}
 }
 
 let tripsToParse = [
@@ -51,3 +59,9 @@ function parseTrips(trips) {
 }
 
 parseTrips(tripsToParse)
+
+// Test de la méthode de compatibilité
+let trip = new Trip("Roger", 0, 5, 10)
+let anotherTrip = new Trip("Pongo", 3, 7, 14)
+
+console.log(trip.isCompatible(anotherTrip))
